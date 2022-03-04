@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Sko-hY-aXQ">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--PlaylistView-->
+        <scene sceneID="p6z-8v-hWh">
+            <objects>
+                <viewController id="wIm-5N-gpI" userLabel="PlaylistView" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="L6R-Y9-Jhu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="CJq-1C-YKc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="1bD-fv-k2z"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IWp-2C-jpG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1171" y="356"/>
+        </scene>
+        <!--Album Search-->
+        <scene sceneID="xZe-HD-Mi1">
+            <objects>
+                <viewController id="8jF-OY-tb4" userLabel="Album Search" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UZe-V5-gW3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Enter a band, singer, or album name" translatesAutoresizingMaskIntoConstraints="NO" id="1W5-xh-klO">
+                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="9Df-kF-86X">
+                                <rect key="frame" x="20" y="132" width="374" height="731"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="350" id="bSP-ti-Di7" userLabel="AlbumCell">
+                                        <rect key="frame" x="0.0" y="44.5" width="374" height="350"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bSP-ti-Di7" id="WMx-gH-oQC">
+                                            <rect key="frame" x="0.0" y="0.0" width="345.5" height="350"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="ezv-qf-7jk" kind="show" id="nP8-bt-CrW"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="yY3-Oc-XRD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Album Search" id="PVf-Al-t1D"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8lx-m1-jkV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1171.0144927536232" y="-340.17857142857139"/>
+        </scene>
+        <!--DetailViewController-->
+        <scene sceneID="QpT-5W-ACa">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lud-2d-xTv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="ezv-qf-7jk" userLabel="DetailViewController" customClass="DetailViewController" customModule="IvanZrvnarTest1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Y0w-Dh-Gsq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="6ST-VL-2gn"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="XYa-AL-mWv">
+                        <barButtonItem key="rightBarButtonItem" image="guitars" catalog="system" id="aI4-3R-oJA"/>
+                    </navigationItem>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1990" y="-340"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Z4m-bi-iXe">
+            <objects>
+                <tabBarController id="Sko-hY-aXQ" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IuC-Dg-9yz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="JjE-P4-8Qu" kind="relationship" relationship="viewControllers" id="teg-yo-N38"/>
+                        <segue destination="zsy-zb-OXf" kind="relationship" relationship="viewControllers" id="R50-ot-QST"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1F3-ve-rz4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-574" y="-36"/>
+        </scene>
+        <!--Album Search-->
+        <scene sceneID="fxL-cg-QhE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JjE-P4-8Qu" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Album Search" image="record.circle" catalog="system" id="zK9-4X-R9i"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="c4Y-Vy-8TM">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8jF-OY-tb4" kind="relationship" relationship="rootViewController" id="2De-hE-fnF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YDN-bO-ltn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="313.04347826086956" y="-339.50892857142856"/>
+        </scene>
+        <!--Playlist-->
+        <scene sceneID="hhH-Jf-C5b">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zsy-zb-OXf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Playlist" image="music.quarternote.3" catalog="system" id="Rc8-O6-JyB"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Po0-aa-Peu">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wIm-5N-gpI" kind="relationship" relationship="rootViewController" id="5Fn-jl-l1u"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Oe-3U-7Bx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="311.59420289855075" y="355.58035714285711"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="guitars" catalog="system" width="128" height="100"/>
+        <image name="music.quarternote.3" catalog="system" width="128" height="103"/>
+        <image name="record.circle" catalog="system" width="128" height="121"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -13,6 +13,9 @@
 		90DAF4A627D24C9E00C9AC9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90DAF4A427D24C9E00C9AC9E /* Main.storyboard */; };
 		90DAF4A827D24C9F00C9AC9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90DAF4A727D24C9F00C9AC9E /* Assets.xcassets */; };
 		90DAF4AB27D24C9F00C9AC9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90DAF4A927D24C9F00C9AC9E /* LaunchScreen.storyboard */; };
+		90DAF4B727D24D5800C9AC9E /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DAF4B627D24D5800C9AC9E /* Album.swift */; };
+		90DAF4B927D2530C00C9AC9E /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DAF4B827D2530C00C9AC9E /* Playlist.swift */; };
+		90DAF4BB27D2588B00C9AC9E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DAF4BA27D2588B00C9AC9E /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		90DAF4A727D24C9F00C9AC9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		90DAF4AA27D24C9F00C9AC9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		90DAF4AC27D24C9F00C9AC9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90DAF4B627D24D5800C9AC9E /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		90DAF4B827D2530C00C9AC9E /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
+		90DAF4BA27D2588B00C9AC9E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +62,50 @@
 		90DAF49D27D24C9E00C9AC9E /* IvanZrvnarTest1 */ = {
 			isa = PBXGroup;
 			children = (
-				90DAF49E27D24C9E00C9AC9E /* AppDelegate.swift */,
-				90DAF4A027D24C9E00C9AC9E /* SceneDelegate.swift */,
-				90DAF4A227D24C9E00C9AC9E /* ViewController.swift */,
-				90DAF4A427D24C9E00C9AC9E /* Main.storyboard */,
+				90DAF4B527D24D3200C9AC9E /* Models */,
+				90DAF4B427D24D0A00C9AC9E /* Delegates */,
+				90DAF4B327D24CD900C9AC9E /* Storyboards */,
+				90DAF4B227D24CBB00C9AC9E /* Controller */,
 				90DAF4A727D24C9F00C9AC9E /* Assets.xcassets */,
-				90DAF4A927D24C9F00C9AC9E /* LaunchScreen.storyboard */,
 				90DAF4AC27D24C9F00C9AC9E /* Info.plist */,
 			);
 			path = IvanZrvnarTest1;
+			sourceTree = "<group>";
+		};
+		90DAF4B227D24CBB00C9AC9E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				90DAF4A227D24C9E00C9AC9E /* ViewController.swift */,
+				90DAF4BA27D2588B00C9AC9E /* DetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		90DAF4B327D24CD900C9AC9E /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				90DAF4A427D24C9E00C9AC9E /* Main.storyboard */,
+				90DAF4A927D24C9F00C9AC9E /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		90DAF4B427D24D0A00C9AC9E /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				90DAF49E27D24C9E00C9AC9E /* AppDelegate.swift */,
+				90DAF4A027D24C9E00C9AC9E /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		90DAF4B527D24D3200C9AC9E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				90DAF4B627D24D5800C9AC9E /* Album.swift */,
+				90DAF4B827D2530C00C9AC9E /* Playlist.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +182,9 @@
 				90DAF4A327D24C9E00C9AC9E /* ViewController.swift in Sources */,
 				90DAF49F27D24C9E00C9AC9E /* AppDelegate.swift in Sources */,
 				90DAF4A127D24C9E00C9AC9E /* SceneDelegate.swift in Sources */,
+				90DAF4BB27D2588B00C9AC9E /* DetailViewController.swift in Sources */,
+				90DAF4B727D24D5800C9AC9E /* Album.swift in Sources */,
+				90DAF4B927D2530C00C9AC9E /* Playlist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
