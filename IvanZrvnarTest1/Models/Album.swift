@@ -6,14 +6,16 @@
 //
 
 import Foundation
+// enum to use for diffable data source
+enum Section: CaseIterable{
+    case main
+}
+
 
 // creating an array of albums
 struct Albums: Codable {
     var results: [Album]
 }
-
-
-
 
 // creating a struct to match the json from itunes API
 

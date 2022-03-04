@@ -16,6 +16,8 @@
 		90DAF4B727D24D5800C9AC9E /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DAF4B627D24D5800C9AC9E /* Album.swift */; };
 		90DAF4B927D2530C00C9AC9E /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DAF4B827D2530C00C9AC9E /* Playlist.swift */; };
 		90DAF4BB27D2588B00C9AC9E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DAF4BA27D2588B00C9AC9E /* DetailViewController.swift */; };
+		90DAF4BD27D260EA00C9AC9E /* AlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DAF4BC27D260EA00C9AC9E /* AlbumTableViewCell.swift */; };
+		90DAF4BF27D269B600C9AC9E /* AlbumDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DAF4BE27D269B600C9AC9E /* AlbumDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		90DAF4B627D24D5800C9AC9E /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		90DAF4B827D2530C00C9AC9E /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		90DAF4BA27D2588B00C9AC9E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		90DAF4BC27D260EA00C9AC9E /* AlbumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTableViewCell.swift; sourceTree = "<group>"; };
+		90DAF4BE27D269B600C9AC9E /* AlbumDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 			children = (
 				90DAF4A427D24C9E00C9AC9E /* Main.storyboard */,
 				90DAF4A927D24C9F00C9AC9E /* LaunchScreen.storyboard */,
+				90DAF4BC27D260EA00C9AC9E /* AlbumTableViewCell.swift */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -104,6 +109,7 @@
 			children = (
 				90DAF4B627D24D5800C9AC9E /* Album.swift */,
 				90DAF4B827D2530C00C9AC9E /* Playlist.swift */,
+				90DAF4BE27D269B600C9AC9E /* AlbumDataSource.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -183,6 +189,8 @@
 				90DAF49F27D24C9E00C9AC9E /* AppDelegate.swift in Sources */,
 				90DAF4A127D24C9E00C9AC9E /* SceneDelegate.swift in Sources */,
 				90DAF4BB27D2588B00C9AC9E /* DetailViewController.swift in Sources */,
+				90DAF4BF27D269B600C9AC9E /* AlbumDataSource.swift in Sources */,
+				90DAF4BD27D260EA00C9AC9E /* AlbumTableViewCell.swift in Sources */,
 				90DAF4B727D24D5800C9AC9E /* Album.swift in Sources */,
 				90DAF4B927D2530C00C9AC9E /* Playlist.swift in Sources */,
 			);
