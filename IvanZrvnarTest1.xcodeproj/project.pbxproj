@@ -18,6 +18,7 @@
 		90DAF4BB27D2588B00C9AC9E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DAF4BA27D2588B00C9AC9E /* DetailViewController.swift */; };
 		90DAF4BD27D260EA00C9AC9E /* AlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DAF4BC27D260EA00C9AC9E /* AlbumTableViewCell.swift */; };
 		90DAF4BF27D269B600C9AC9E /* AlbumDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DAF4BE27D269B600C9AC9E /* AlbumDataSource.swift */; };
+		90DAF4C127D26CA800C9AC9E /* noRecord.png in Resources */ = {isa = PBXBuildFile; fileRef = 90DAF4C027D26CA800C9AC9E /* noRecord.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		90DAF4BA27D2588B00C9AC9E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		90DAF4BC27D260EA00C9AC9E /* AlbumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTableViewCell.swift; sourceTree = "<group>"; };
 		90DAF4BE27D269B600C9AC9E /* AlbumDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDataSource.swift; sourceTree = "<group>"; };
+		90DAF4C027D26CA800C9AC9E /* noRecord.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noRecord.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				90DAF4B327D24CD900C9AC9E /* Storyboards */,
 				90DAF4B227D24CBB00C9AC9E /* Controller */,
 				90DAF4A727D24C9F00C9AC9E /* Assets.xcassets */,
+				90DAF4C027D26CA800C9AC9E /* noRecord.png */,
 				90DAF4AC27D24C9F00C9AC9E /* Info.plist */,
 			);
 			path = IvanZrvnarTest1;
@@ -175,6 +178,7 @@
 				90DAF4AB27D24C9F00C9AC9E /* LaunchScreen.storyboard in Resources */,
 				90DAF4A827D24C9F00C9AC9E /* Assets.xcassets in Resources */,
 				90DAF4A627D24C9E00C9AC9E /* Main.storyboard in Resources */,
+				90DAF4C127D26CA800C9AC9E /* noRecord.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
