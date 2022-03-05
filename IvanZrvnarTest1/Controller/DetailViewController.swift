@@ -8,10 +8,13 @@
 import UIKit
 import WebKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, WKUIDelegate {
     //MARK: -Properties
     var album: Album?
     var playlist: Playlist!
+    
+    var webView: WKWebView!
+   
     
     //MARK: -OUTLETS
     @IBOutlet weak var collectionNameLabel: UILabel!
@@ -26,12 +29,20 @@ class DetailViewController: UIViewController {
         
         if let album = album {
             collectionNameLabel.text = album.collectionName
+            copyrightLabel.text = album.copyright
+            
+            let albumURL = URL(string: "\(album.collectionViewUrl)")
+            let request = URLRequest(url: albumURL!)
+            appleMusicLabel.load(request)
             
             
         }
 
       
     }//: View did load
+    
+    //loading the apple music webview
+    
     
 
     /*

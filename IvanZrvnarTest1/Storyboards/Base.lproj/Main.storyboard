@@ -151,20 +151,20 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QnK-nK-Dnw">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QnK-nK-Dnw">
                                         <rect key="frame" x="175.5" y="73" width="63.5" height="17"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More album information" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="knU-FA-V9d">
-                                        <rect key="frame" x="116.5" y="126" width="181" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="126" width="414" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rlj-zY-TPC">
-                                        <rect key="frame" x="20" y="182.5" width="374" height="542.5"/>
+                                        <rect key="frame" x="0.0" y="182.5" width="414" height="542.5"/>
                                         <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <wkWebViewConfiguration key="configuration">
                                             <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -172,6 +172,12 @@
                                         </wkWebViewConfiguration>
                                     </wkWebView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="Rlj-zY-TPC" firstAttribute="top" secondItem="knU-FA-V9d" secondAttribute="bottom" constant="36" id="OjD-gd-F0f"/>
+                                    <constraint firstAttribute="trailing" secondItem="Rlj-zY-TPC" secondAttribute="trailing" id="PBV-bv-N3v"/>
+                                    <constraint firstItem="Rlj-zY-TPC" firstAttribute="leading" secondItem="atH-gL-0eT" secondAttribute="leading" id="U1N-Gu-2pP"/>
+                                    <constraint firstItem="knU-FA-V9d" firstAttribute="leading" secondItem="atH-gL-0eT" secondAttribute="leading" id="v57-dh-j8w"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6ST-VL-2gn"/>
@@ -180,6 +186,7 @@
                             <constraint firstItem="atH-gL-0eT" firstAttribute="leading" secondItem="6ST-VL-2gn" secondAttribute="leading" id="C0h-r5-dOU"/>
                             <constraint firstItem="atH-gL-0eT" firstAttribute="top" secondItem="6ST-VL-2gn" secondAttribute="top" id="HJR-d2-FVS"/>
                             <constraint firstItem="6ST-VL-2gn" firstAttribute="trailing" secondItem="atH-gL-0eT" secondAttribute="trailing" id="JN7-fQ-nbc"/>
+                            <constraint firstItem="6ST-VL-2gn" firstAttribute="bottom" secondItem="Rlj-zY-TPC" secondAttribute="bottom" id="K9B-JF-ENv"/>
                             <constraint firstItem="6ST-VL-2gn" firstAttribute="bottom" secondItem="atH-gL-0eT" secondAttribute="bottom" id="VAZ-WB-aP6"/>
                         </constraints>
                     </view>

@@ -121,7 +121,7 @@ class ViewController: UIViewController {
         
     }//: fetchAlbum()
     
-    //MARK: - Fetching Album Art
+    //MARK: - Fetching Image
     //fetching Image Method
     
     func fetchImage(for path: String, in cell: AlbumTableViewCell){

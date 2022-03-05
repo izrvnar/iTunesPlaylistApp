@@ -23,7 +23,7 @@ struct Album: Codable, Hashable{
     var collectionId: Int
     var artistName: String
     var collectionName: String
-    //var copyright: String
+    var copyright: String
     var primaryGenreName: String
     var collectionPrice: Double
     var collectionViewUrl: String
