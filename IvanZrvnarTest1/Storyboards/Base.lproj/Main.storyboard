@@ -37,7 +37,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="9Df-kF-86X">
-                                <rect key="frame" x="0.0" y="139" width="414" height="724"/>
+                                <rect key="frame" x="0.0" y="139" width="414" height="674"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AlbumCell" rowHeight="317" id="bSP-ti-Di7" userLabel="AlbumCell" customClass="AlbumTableViewCell" customModule="IvanZrvnarTest1" customModuleProvider="target">
@@ -54,8 +54,8 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" alignment="top" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="2DM-e7-mHm" userLabel="FinalView">
-                                                    <rect key="frame" x="20" y="68" width="209.5" height="142.5"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="2DM-e7-mHm" userLabel="FinalView">
+                                                    <rect key="frame" x="20" y="26.5" width="357.5" height="279.5"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noRecord.png" translatesAutoresizingMaskIntoConstraints="NO" id="xnR-Ef-TLn" userLabel="AlbumImageView">
                                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -65,9 +65,9 @@
                                                             </constraints>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="RlH-mt-xPx" userLabel="label Stack View">
-                                                            <rect key="frame" x="129" y="0.0" width="80.5" height="142.5"/>
+                                                            <rect key="frame" x="129" y="0.0" width="228.5" height="142.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hTG-DY-VgT" userLabel="artistNameLabel">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hTG-DY-VgT" userLabel="artistNameLabel">
                                                                     <rect key="frame" x="0.0" y="0.0" width="80.5" height="17"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                     <nil key="textColor"/>
@@ -91,12 +91,21 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="2DM-e7-mHm" secondAttribute="bottom" id="2AY-UN-5dr"/>
                                                 <constraint firstItem="Dpe-gF-4SW" firstAttribute="leading" secondItem="WMx-gH-oQC" secondAttribute="leading" id="Haj-5q-tnT"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="2DM-e7-mHm" secondAttribute="trailing" id="JQb-BL-UQ4"/>
                                                 <constraint firstItem="Dpe-gF-4SW" firstAttribute="top" secondItem="WMx-gH-oQC" secondAttribute="top" id="ZHy-GN-5kd"/>
+                                                <constraint firstItem="2DM-e7-mHm" firstAttribute="top" secondItem="Dpe-gF-4SW" secondAttribute="bottom" id="d8z-Rr-kLm"/>
                                                 <constraint firstAttribute="trailing" secondItem="Dpe-gF-4SW" secondAttribute="trailing" id="esb-YE-rgJ"/>
+                                                <constraint firstItem="2DM-e7-mHm" firstAttribute="leading" secondItem="WMx-gH-oQC" secondAttribute="leadingMargin" id="fGd-Ii-Rno"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="albumImageView" destination="xnR-Ef-TLn" id="mhj-yd-1pU"/>
+                                            <outlet property="artistNameLabel" destination="hTG-DY-VgT" id="xFG-gj-XXn"/>
+                                            <outlet property="collectionNameOutlet" destination="Dpe-gF-4SW" id="DQB-Im-iYH"/>
+                                            <outlet property="genreLabel" destination="Q96-yv-hDZ" id="i9L-X9-5pw"/>
+                                            <outlet property="priceLabel" destination="KPE-ZU-OYF" id="BoE-Gr-b2c"/>
                                             <segue destination="ezv-qf-7jk" kind="show" id="nP8-bt-CrW"/>
                                         </connections>
                                     </tableViewCell>
@@ -111,7 +120,7 @@
                             <constraint firstItem="1W5-xh-klO" firstAttribute="leading" secondItem="yY3-Oc-XRD" secondAttribute="leading" id="C4J-ah-RNm"/>
                             <constraint firstItem="9Df-kF-86X" firstAttribute="top" secondItem="1W5-xh-klO" secondAttribute="bottom" id="KLK-dp-5r5"/>
                             <constraint firstItem="1W5-xh-klO" firstAttribute="trailing" secondItem="yY3-Oc-XRD" secondAttribute="trailing" id="TuM-pB-fUP"/>
-                            <constraint firstItem="yY3-Oc-XRD" firstAttribute="bottom" secondItem="9Df-kF-86X" secondAttribute="bottom" constant="-50" id="mRG-Ir-rK4"/>
+                            <constraint firstItem="yY3-Oc-XRD" firstAttribute="bottom" secondItem="9Df-kF-86X" secondAttribute="bottom" id="mRG-Ir-rK4"/>
                             <constraint firstItem="yY3-Oc-XRD" firstAttribute="trailing" secondItem="9Df-kF-86X" secondAttribute="trailing" id="oZ7-kr-7Lp"/>
                         </constraints>
                     </view>
@@ -128,7 +137,6 @@
         <!--DetailViewController-->
         <scene sceneID="QpT-5W-ACa">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Lud-2d-xTv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="ezv-qf-7jk" userLabel="DetailViewController" customClass="DetailViewController" customModule="IvanZrvnarTest1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Y0w-Dh-Gsq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -179,6 +187,7 @@
                         <barButtonItem key="rightBarButtonItem" image="guitars" catalog="system" id="aI4-3R-oJA"/>
                     </navigationItem>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lud-2d-xTv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1989.8550724637682" y="-340.17857142857139"/>
         </scene>

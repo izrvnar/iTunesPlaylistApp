@@ -11,8 +11,12 @@ import UIKit
 class AlbumTableViewCell: UITableViewCell{
     //MARK: -Outlets
     
-    
-    
+    // cell outlets
+    @IBOutlet weak var collectionNameOutlet: UILabel!
+    @IBOutlet weak var albumImageView: UIImageView!
+    @IBOutlet weak var artistNameLabel: UILabel!
+    @IBOutlet weak var genreLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
     
     
     

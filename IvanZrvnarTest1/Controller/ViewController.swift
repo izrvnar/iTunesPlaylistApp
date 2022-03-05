@@ -12,9 +12,11 @@ class ViewController: UIViewController {
     //MARK: -Data Source
     private lazy var dataSource = AlbumDataSource(tableView: tableView){
         tableView, indexPath, album in
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AlbumCell", for: indexPath)
-        
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AlbumCell", for: indexPath) as! AlbumTableViewCell
+        cell.collectionNameOutlet?.text = album.collectionName
+        cell.artistNameLabel?.text = album.artistName
+        cell.genreLabel?.text = album.primaryGenreName
+        cell.priceLabel?.text = ("\(album.collectionPrice)")
         
         return cell
     }
@@ -33,8 +35,105 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        searchBar.delegate = self
+        tableView.delegate = self
+        
+        
+        
     }//: View did load
+    
+    //MARK: -Snapshot Method
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Section,Album>
+    func createSnapshot(with albums:[Album]){
+        var snapshot = Snapshot()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(albums, toSection: .main)
+        dataSource.apply(snapshot, animatingDifferences: true)
+    }
+    
+    
+    // MARK: - Data Fetch
+    // create the URL that will fetch the album
+    func createAlbumURL(from album: String) -> URL? {
+        guard let cleanURL = album.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) else {
+            fatalError("You can't make an album with: \(album)")
+        }
+        var urlString = "https://itunes.apple.com/search"
+        urlString = urlString.appending("?term=\(cleanURL)&entity=album")
+        print(urlString)
+        
+        return URL(string: urlString)
+    }
+    
+    // fetching the album
+    func fetchAlbum(from url: URL){
+        let albumTask = URLSession.shared.dataTask(with: url){
+            data, response, error in
+            
+            if let dataError = error{
+                print("Could not fetch album: \(dataError.localizedDescription)")
+            } else {
+                do {
+                    guard let someData = data else {
+                        return
+                    }
+                    
+                    let jsonDecoder = JSONDecoder()
+                    let downloadedResults = try jsonDecoder.decode(Albums.self, from: someData)
+                    let albumResults = downloadedResults.results
+                    
+                    
+                    DispatchQueue.main.async {
+                        self.createSnapshot(with: albumResults)
+                    }
+                    
+                }
+                catch DecodingError.keyNotFound(let key, let context){
+                    print("Error with key - \(key): \(context)")
+                } catch DecodingError.valueNotFound(let value, let context){
+                    print("Missing value - \(value): \(context)")
+                } catch let error {
+                    print("Problem decoding: \(error.localizedDescription)")
+                }
+            }
+        }
+        
+        albumTask.resume()
+        
+    
+        
+    }//: fetchAlbum()
+    
+    
+    
+    
 
 
 }//: View controller
 
+//MARK: - Table View Delegation Method
+extension ViewController: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+    }
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "Remove Album"
+    
+}
+}
+
+//MARK: - Search Bar Delegate Method
+extension ViewController:UISearchBarDelegate{
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        //mark sure there is text
+        guard let searchText = searchBar.text else { return }
+        
+        if let albumURL = createAlbumURL(from: searchText){
+            fetchAlbum(from: albumURL)
+        }
+        searchBar.resignFirstResponder()
+    }
+}
