@@ -18,6 +18,11 @@ class ViewController: UIViewController {
         cell.genreLabel?.text = album.primaryGenreName
         cell.priceLabel?.text = ("\(album.collectionPrice)")
         
+        
+        if let albumArtPath = album.artworkUrl100{
+            self.fetchImage(for: albumArtPath, in: cell)
+        }
+        
         return cell
     }
     
@@ -42,6 +47,11 @@ class ViewController: UIViewController {
         
         
     }//: View did load
+    
+    //MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+    }
     
     //MARK: -Snapshot Method
     typealias Snapshot = NSDiffableDataSourceSnapshot<Section,Album>
@@ -104,6 +114,33 @@ class ViewController: UIViewController {
     
         
     }//: fetchAlbum()
+    
+    //MARK: - Fetching Album Art
+    //fetching Image Method
+    
+    func fetchImage(for path: String, in cell: AlbumTableViewCell){
+        let initalPathString = "https://is2-ssl.mzstatic.com/image"
+        let albumPath = initalPathString + path
+        
+        guard let imageUrl = URL(string: albumPath) else {
+            print("Cant make url from \(albumPath)")
+            return
+        }
+        
+        let imageFetchTask = URLSession.shared.downloadTask(with: imageUrl){
+            url, response, error in
+            if error == nil, let url = url, let data = try? Data(contentsOf: url), let image = UIImage(data: data){
+                DispatchQueue.main.async {
+                    cell.albumImageView.image = image
+                }
+            }
+
+        }
+        imageFetchTask.resume()
+        
+    }
+    
+    
     
     
     

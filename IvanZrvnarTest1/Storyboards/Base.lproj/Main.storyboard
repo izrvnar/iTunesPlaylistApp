@@ -186,6 +186,11 @@
                     <navigationItem key="navigationItem" id="XYa-AL-mWv">
                         <barButtonItem key="rightBarButtonItem" image="guitars" catalog="system" id="aI4-3R-oJA"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="appleMusicLabel" destination="Rlj-zY-TPC" id="Fkp-Ni-TmH"/>
+                        <outlet property="collectionNameLabel" destination="4NF-87-IWB" id="4QI-Ww-5RB"/>
+                        <outlet property="copyrightLabel" destination="QnK-nK-Dnw" id="a3g-Qo-IyB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lud-2d-xTv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

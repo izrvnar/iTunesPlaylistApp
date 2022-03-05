@@ -27,5 +27,5 @@ struct Album: Codable, Hashable{
     var primaryGenreName: String
     var collectionPrice: Double
     var collectionViewUrl: String
-    var artworkUrl100: String
+    var artworkUrl100: String?
 }

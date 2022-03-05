@@ -6,14 +6,32 @@
 //
 
 import UIKit
+import WebKit
 
 class DetailViewController: UIViewController {
+    //MARK: -Properties
+    var album: Album?
+    var playlist: Playlist!
+    
+    //MARK: -OUTLETS
+    @IBOutlet weak var collectionNameLabel: UILabel!
+    @IBOutlet weak var copyrightLabel: UILabel!
+    @IBOutlet weak var appleMusicLabel: WKWebView!
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let album = album {
+            collectionNameLabel.text = album.collectionName
+            
+            
+        }
 
-        // Do any additional setup after loading the view.
-    }
+      
+    }//: View did load
     
 
     /*
