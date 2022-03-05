@@ -50,6 +50,12 @@ class ViewController: UIViewController {
     
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let selectedIndex = tableView.indexPathForSelectedRow else {return}
+        
+        let destinationVC = segue.destination as! DetailViewController
+        
+        let albumToPass = dataSource.itemIdentifier(for: selectedIndex)
+        destinationVC.album = albumToPass
 
     }
     
