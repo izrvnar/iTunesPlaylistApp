@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     
     //MARK: -Data Source
-    private lazy var dataSource = AlbumDataSource(tableView: tableView){
+    private lazy var dataSource = AlbumDataSource(tableView: tableView){ [self]
         tableView, indexPath, album in
         let cell = tableView.dequeueReusableCell(withIdentifier: "AlbumCell", for: indexPath) as! AlbumTableViewCell
         cell.collectionNameOutlet?.text = album.collectionName
@@ -21,6 +21,8 @@ class ViewController: UIViewController {
         
         if let albumArtPath = album.artworkUrl100{
             self.fetchImage(for: albumArtPath, in: cell)
+        } else {
+            cell.albumImageView.image = UIImage(named: "noRecord.png")
         }
         
         return cell
@@ -125,17 +127,18 @@ class ViewController: UIViewController {
     //fetching Image Method
     
     func fetchImage(for path: String, in cell: AlbumTableViewCell){
-        let initalPathString = "https://is2-ssl.mzstatic.com/image"
-        let albumPath = initalPathString + path
+        //let pathString = "https://is2-ssl.mzstatic.com/image"
+        
+        let albumPath = path
         
         guard let imageUrl = URL(string: albumPath) else {
-            print("Cant make url from \(albumPath)")
             return
         }
         
         let imageFetchTask = URLSession.shared.downloadTask(with: imageUrl){
             url, response, error in
             if error == nil, let url = url, let data = try? Data(contentsOf: url), let image = UIImage(data: data){
+                
                 DispatchQueue.main.async {
                     cell.albumImageView.image = image
                 }

@@ -191,7 +191,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="XYa-AL-mWv">
-                        <barButtonItem key="rightBarButtonItem" image="guitars" catalog="system" id="aI4-3R-oJA"/>
+                        <barButtonItem key="rightBarButtonItem" image="guitars" catalog="system" id="aI4-3R-oJA">
+                            <connections>
+                                <action selector="addToPlaylistButton:" destination="ezv-qf-7jk" id="Lfd-vf-lGg"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="appleMusicLabel" destination="Rlj-zY-TPC" id="Fkp-Ni-TmH"/>

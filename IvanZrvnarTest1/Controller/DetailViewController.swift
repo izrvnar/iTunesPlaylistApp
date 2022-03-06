@@ -13,13 +13,34 @@ class DetailViewController: UIViewController, WKUIDelegate {
     var album: Album?
     var playlist: Playlist!
     
-    var webView: WKWebView!
-   
-    
     //MARK: -OUTLETS
     @IBOutlet weak var collectionNameLabel: UILabel!
     @IBOutlet weak var copyrightLabel: UILabel!
     @IBOutlet weak var appleMusicLabel: WKWebView!
+    
+    // adding to playlist
+    @IBAction func addToPlaylistButton(_ sender: Any) {
+        if let album = album {
+            if !playlist.mainPlaylist.contains(album){
+                playlist.mainPlaylist.append(album)
+                // add show alert function
+                showAlert(with: "Added to Playlist", withMessage: "\(album.collectionName) has been added to your Playlist")
+                
+            } else {
+                showAlert(with: "Already Added", withMessage: "\(album.collectionName) is already in your playlist")
+            }
+        }
+    }
+    //MARK: -Show Alert Method
+    func showAlert(with title: String, withMessage message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default){
+            [weak self] _ in
+            self?.navigationController?.popViewController(animated: true)
+        }
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
     
     
     
@@ -41,7 +62,7 @@ class DetailViewController: UIViewController, WKUIDelegate {
       
     }//: View did load
     
-    //loading the apple music webview
+   
     
     
 

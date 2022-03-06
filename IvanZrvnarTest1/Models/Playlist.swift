@@ -10,5 +10,5 @@ import Foundation
 
 // created an empty array of albums to hold for the user playlist
 class Playlist {
-    var playlist = [Album]()
+    var mainPlaylist = [Album]()
 }
