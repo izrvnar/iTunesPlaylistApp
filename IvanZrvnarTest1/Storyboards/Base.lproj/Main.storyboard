@@ -5,24 +5,94 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--PlaylistView-->
         <scene sceneID="p6z-8v-hWh">
             <objects>
-                <viewController id="wIm-5N-gpI" userLabel="PlaylistView" sceneMemberID="viewController">
+                <viewController id="wIm-5N-gpI" userLabel="PlaylistView" customClass="PlaylistViewController" customModule="IvanZrvnarTest1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L6R-Y9-Jhu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8Kz-g5-we0">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9S9-lA-kQt">
+                                    <size key="itemSize" width="190" height="218"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PlaylistCell" id="ocm-Sl-s3G" userLabel="AlbumCell" customClass="AlbumCollectionViewCell" customModule="IvanZrvnarTest1" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="190" height="218"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="b3m-2S-geH">
+                                            <rect key="frame" x="0.0" y="0.0" width="190" height="218"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="ycu-yD-nET">
+                                                    <rect key="frame" x="32.5" y="12" width="125.5" height="194"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="guitars" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="QxR-vZ-Soc">
+                                                            <rect key="frame" x="50" y="0.0" width="25.5" height="20"/>
+                                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collection Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hce-0Q-uh4">
+                                                            <rect key="frame" x="0.0" y="60" width="125.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43Q-hA-zRE">
+                                                            <rect key="frame" x="46.5" y="120.5" width="32" height="13.5"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="speaker.wave.3" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gzh-Kd-Ykt">
+                                                            <rect key="frame" x="49" y="174.5" width="27.5" height="18.5"/>
+                                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.47843137254901957" green="0.054901960784313725" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="ycu-yD-nET" firstAttribute="centerY" secondItem="b3m-2S-geH" secondAttribute="centerY" id="7iE-OF-iOe"/>
+                                                <constraint firstItem="ycu-yD-nET" firstAttribute="centerX" secondItem="b3m-2S-geH" secondAttribute="centerX" id="Cgp-ai-GDO"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="190" height="218"/>
+                                        <connections>
+                                            <outlet property="collectionNameLabel" destination="Hce-0Q-uh4" id="XNu-Sv-ggH"/>
+                                            <outlet property="explicitLabel" destination="gzh-Kd-Ykt" id="ufu-Tv-d9l"/>
+                                            <outlet property="genreLabel" destination="43Q-hA-zRE" id="9jX-1e-xwf"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="CJq-1C-YKc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CJq-1C-YKc" firstAttribute="bottom" secondItem="8Kz-g5-we0" secondAttribute="bottom" id="45b-E2-ps6"/>
+                            <constraint firstItem="8Kz-g5-we0" firstAttribute="top" secondItem="CJq-1C-YKc" secondAttribute="top" id="Eyi-ZI-zQ5"/>
+                            <constraint firstItem="8Kz-g5-we0" firstAttribute="leading" secondItem="CJq-1C-YKc" secondAttribute="leading" id="Lj9-Lo-7Nk"/>
+                            <constraint firstItem="CJq-1C-YKc" firstAttribute="trailing" secondItem="8Kz-g5-we0" secondAttribute="trailing" id="epD-RA-W2B"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1bD-fv-k2z"/>
+                    <connections>
+                        <outlet property="collectionView" destination="8Kz-g5-we0" id="pGK-iV-ddq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IWp-2C-jpG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1171" y="356"/>
+            <point key="canvasLocation" x="1169.5652173913045" y="355.58035714285711"/>
         </scene>
         <!--Album Search-->
         <scene sceneID="xZe-HD-Mi1">
@@ -269,6 +339,7 @@
         <image name="music.quarternote.3" catalog="system" width="128" height="103"/>
         <image name="noRecord.png" width="1.8992125988006592" height="2.8346457481384277"/>
         <image name="record.circle" catalog="system" width="128" height="121"/>
+        <image name="speaker.wave.3" catalog="system" width="128" height="86"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -29,3 +29,11 @@ struct Album: Codable, Hashable{
     var collectionViewUrl: String
     var artworkUrl100: String?
 }
+
+extension Album{
+    var imageReplacement: String {
+        return artworkUrl100 ?? "Image not availible"
+    }
+}
+
+

@@ -35,6 +35,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    var playlist: Playlist!
+
     
 
     
@@ -58,6 +60,7 @@ class ViewController: UIViewController {
         
         let albumToPass = dataSource.itemIdentifier(for: selectedIndex)
         destinationVC.album = albumToPass
+        destinationVC.playlist = playlist
 
     }
     
