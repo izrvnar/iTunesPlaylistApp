@@ -8,32 +8,43 @@
 import UIKit
 
 let itemsPerRow: CGFloat = 2
-let interItemSpacing: CGFloat = 0
+let interItemSpacing: CGFloat = 1
 
 class PlaylistViewController: UIViewController{
     
     //MARK: -Properties
     var mainPlaylist: Playlist!
-    
-    
-    
-    
-    
-    
+    private lazy var dataSource = UICollectionViewDiffableDataSource<Section, Album>(collectionView: collectionView){
+        collectionView, indexPath, album in
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlaylistCell", for: indexPath) as! AlbumCollectionViewCell
+        
+        cell.collectionNameLabel.text = album.collectionName
+        cell.genreLabel.text = album.primaryGenreName
+        
+        
+        
+        
+        
+        return cell
+    }
+        
     //MARK: -Outlets
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    
 
-
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        collectionView.delegate = self
 
        
     }//: View did load
-    
+    override func viewWillAppear(_ animated: Bool) {
+        createSnapshot(with: mainPlaylist.mainPlaylist)
+
+    }
 
     /*
     // MARK: - Navigation
@@ -45,10 +56,28 @@ class PlaylistViewController: UIViewController{
     }
     */
     
+    
+    //MARK: -Methods
+    
+    func createSnapshot(with album: [Album]){
+        var snapShot = NSDiffableDataSourceSnapshot<Section, Album>()
+        snapShot.appendSections([.main])
+        snapShot.appendItems(album, toSection: .main)
+        dataSource.apply(snapShot)
+        
+        
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
+    
+    
+    
 
-}//: View Controller
+}//: PLaylist View Controller
 
-extension ViewController: UICollectionViewDelegate{
+extension PlaylistViewController: UICollectionViewDelegate{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return interItemSpacing
@@ -60,7 +89,7 @@ extension ViewController: UICollectionViewDelegate{
     
 }
 
-extension ViewController: UICollectionViewDelegateFlowLayout{
+extension PlaylistViewController: UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
