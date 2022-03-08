@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     
     //MARK: -Data Source
+    // creating the datasource for the table view
     private lazy var dataSource = AlbumDataSource(tableView: tableView){ [self]
         tableView, indexPath, album in
         let cell = tableView.dequeueReusableCell(withIdentifier: "AlbumCell", for: indexPath) as! AlbumTableViewCell
@@ -53,6 +54,7 @@ class ViewController: UIViewController {
     }//: View did load
     
     //MARK: - Navigation
+    // sending the information to the detail view controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let selectedIndex = tableView.indexPathForSelectedRow else {return}
         
@@ -65,6 +67,7 @@ class ViewController: UIViewController {
     }
     
     //MARK: -Snapshot Method
+    // creating a snapshot from the data source
     typealias Snapshot = NSDiffableDataSourceSnapshot<Section,Album>
     func createSnapshot(with albums:[Album]){
         var snapshot = Snapshot()
@@ -92,6 +95,7 @@ class ViewController: UIViewController {
         let albumTask = URLSession.shared.dataTask(with: url){
             data, response, error in
             
+            // providing an error message if there is no image 
             if let dataError = error{
                 print("Could not fetch album: \(dataError.localizedDescription)")
             } else {
@@ -99,16 +103,16 @@ class ViewController: UIViewController {
                     guard let someData = data else {
                         return
                     }
-                    
+                    // using the built in json Decoder
                     let jsonDecoder = JSONDecoder()
                     let downloadedResults = try jsonDecoder.decode(Albums.self, from: someData)
                     let albumResults = downloadedResults.results
                     
-                    
+                    // prioritizing the new snapshot
                     DispatchQueue.main.async {
                         self.createSnapshot(with: albumResults)
                     }
-                    
+                    // adding error prints in the event something doesn't populate
                 }
                 catch DecodingError.keyNotFound(let key, let context){
                     print("Error with key - \(key): \(context)")
@@ -163,6 +167,7 @@ class ViewController: UIViewController {
 
 //MARK: - Table View Delegation Method
 extension ViewController: UITableViewDelegate{
+    // required did select row at method for the table view
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -179,6 +184,7 @@ extension ViewController:UISearchBarDelegate{
         if let albumURL = createAlbumURL(from: searchText){
             fetchAlbum(from: albumURL)
         }
+        // sending the keyboard away
         searchBar.resignFirstResponder()
     }
 }

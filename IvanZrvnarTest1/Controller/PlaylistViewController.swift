@@ -16,6 +16,7 @@ class PlaylistViewController: UIViewController{
     //MARK: -Properties
     var mainPlaylist: Playlist!
     var album: Album?
+    // setting the dataSource for the collectionView
     private lazy var dataSource = UICollectionViewDiffableDataSource<Section, Album>(collectionView: collectionView){
         collectionView, indexPath, album in
         
@@ -40,7 +41,7 @@ class PlaylistViewController: UIViewController{
     
 
     
-
+//MARK: -View did load
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -50,6 +51,7 @@ class PlaylistViewController: UIViewController{
 
        
     }//: View did load
+    // displaying the changes to the playlist array
     override func viewWillAppear(_ animated: Bool) {
         createSnapshot(with: mainPlaylist.mainPlaylist)
     }
@@ -67,6 +69,7 @@ class PlaylistViewController: UIViewController{
     
     //MARK: -Methods
     
+    //creating a new snapshot to load the collection View
     func createSnapshot(with album: [Album]){
         var snapShot = NSDiffableDataSourceSnapshot<Section, Album>()
         snapShot.appendSections([.main])
@@ -80,6 +83,7 @@ class PlaylistViewController: UIViewController{
 
 extension PlaylistViewController: UICollectionViewDelegate{
     
+    //setting the spacing between the cells
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return interItemSpacing
     }
@@ -96,7 +100,8 @@ extension PlaylistViewController: UICollectionViewDelegate{
         let ac = UIAlertController(title: "Delete Album?", message: "Do you want to delete \(album.collectionName)? from your playlist", preferredStyle: .alert)
 
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        ac.addAction(UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+        ac.addAction(UIAlertAction(title: "Delete", style: .destructive) { [weak self] _ in
+            // removing the album from the array playlist and reloading the snapshot
             self?.mainPlaylist.mainPlaylist.remove(at: indexPath.item)
             self?.createSnapshot(with: (self?.mainPlaylist.mainPlaylist)!)
 
@@ -115,6 +120,7 @@ present(ac,animated: true)
 
 extension PlaylistViewController: UICollectionViewDelegateFlowLayout{
     
+    // setting the layout for the colleciton view and adjusting for any screen width. This makes sure the layout will remain the same on any device
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let phoneWidth = view.safeAreaLayoutGuide.layoutFrame.width

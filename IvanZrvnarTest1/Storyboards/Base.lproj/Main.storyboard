@@ -95,7 +95,7 @@
                             <constraint firstItem="8Kz-g5-we0" firstAttribute="bottom" secondItem="CJq-1C-YKc" secondAttribute="bottom" id="xFZ-Ll-M6E"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="1bD-fv-k2z"/>
+                    <navigationItem key="navigationItem" title="Album Play List" id="1bD-fv-k2z"/>
                     <connections>
                         <outlet property="collectionView" destination="8Kz-g5-we0" id="pGK-iV-ddq"/>
                     </connections>
@@ -114,7 +114,7 @@
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="Enter a band, singer, or album name" translatesAutoresizingMaskIntoConstraints="NO" id="1W5-xh-klO">
                                 <rect key="frame" x="0.0" y="88" width="414" height="51"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="9Df-kF-86X">
                                 <rect key="frame" x="0.0" y="139" width="414" height="674"/>
@@ -222,29 +222,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="atH-gL-0eT">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="atH-gL-0eT">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4NF-87-IWB" userLabel="collectionNameDetailLabel">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4NF-87-IWB" userLabel="collectionNameDetailLabel">
                                         <rect key="frame" x="121" y="0.0" width="172.5" height="37"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QnK-nK-Dnw">
-                                        <rect key="frame" x="175.5" y="73" width="63.5" height="17"/>
+                                        <rect key="frame" x="175.5" y="57" width="63.5" height="17"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More album information" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="knU-FA-V9d">
-                                        <rect key="frame" x="0.0" y="126" width="414" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More album information:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="knU-FA-V9d">
+                                        <rect key="frame" x="0.0" y="94" width="414" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rlj-zY-TPC">
-                                        <rect key="frame" x="0.0" y="182.5" width="414" height="542.5"/>
+                                        <rect key="frame" x="0.0" y="134.5" width="414" height="590.5"/>
                                         <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <wkWebViewConfiguration key="configuration">
                                             <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -253,7 +253,6 @@
                                     </wkWebView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Rlj-zY-TPC" firstAttribute="top" secondItem="knU-FA-V9d" secondAttribute="bottom" constant="36" id="OjD-gd-F0f"/>
                                     <constraint firstAttribute="trailing" secondItem="Rlj-zY-TPC" secondAttribute="trailing" id="PBV-bv-N3v"/>
                                     <constraint firstItem="Rlj-zY-TPC" firstAttribute="leading" secondItem="atH-gL-0eT" secondAttribute="leading" id="U1N-Gu-2pP"/>
                                     <constraint firstItem="knU-FA-V9d" firstAttribute="leading" secondItem="atH-gL-0eT" secondAttribute="leading" id="v57-dh-j8w"/>

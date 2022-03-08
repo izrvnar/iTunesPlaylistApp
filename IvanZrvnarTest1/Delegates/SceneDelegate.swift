@@ -21,6 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         
+        // setting the ability to pass information between the different tabs and views 
         guard let rootVC = window?.rootViewController as? UITabBarController,
                 let firstTabNav = rootVC.viewControllers?[0] as? UINavigationController,
               let secondTabNav = rootVC.viewControllers?[1] as? UINavigationController,

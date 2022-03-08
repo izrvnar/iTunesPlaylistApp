@@ -24,7 +24,7 @@ class DetailViewController: UIViewController, WKUIDelegate {
             if !playlist.mainPlaylist.contains(album){
                 playlist.mainPlaylist.append(album)
                 // add show alert function
-                showAlert(with: "Added to Playlist", withMessage: "\(album.collectionName) has been added to your Playlist")
+                showAlert(with: "🎸Added🤟", withMessage: "\(album.collectionName) has been added to your Playlist")
                 
             } else {
                 showAlert(with: "Already Added", withMessage: "\(album.collectionName) is already in your playlist")
