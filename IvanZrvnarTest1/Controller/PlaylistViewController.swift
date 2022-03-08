@@ -45,14 +45,13 @@ class PlaylistViewController: UIViewController{
         super.viewDidLoad()
        
         collectionView.delegate = self
+   
+
 
        
     }//: View did load
     override func viewWillAppear(_ animated: Bool) {
         createSnapshot(with: mainPlaylist.mainPlaylist)
-        
-        
-
     }
 
     /*
@@ -93,20 +92,22 @@ extension PlaylistViewController: UICollectionViewDelegate{
     // adding the ability to delete
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let album = mainPlaylist.mainPlaylist[indexPath.item]
-        
+
         let ac = UIAlertController(title: "Delete Album?", message: "Do you want to delete \(album.collectionName)? from your playlist", preferredStyle: .alert)
-        
+
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         ac.addAction(UIAlertAction(title: "OK", style: .default) { [weak self] _ in
-            self!.mainPlaylist.mainPlaylist.remove(at: indexPath.item)
-            collectionView.collectionViewLayout.invalidateLayout()
-            self!.collectionView.reloadData()
+            self?.mainPlaylist.mainPlaylist.remove(at: indexPath.item)
+            self?.createSnapshot(with: (self?.mainPlaylist.mainPlaylist)!)
+
+            
+
         })
-       
+
 
 present(ac,animated: true)
-                   
- 
+
+
     }
 
     

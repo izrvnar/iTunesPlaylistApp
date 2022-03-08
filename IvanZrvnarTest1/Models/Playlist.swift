@@ -9,6 +9,6 @@ import Foundation
 
 
 // created an empty array of albums to hold for the user playlist
-class Playlist {
+class Playlist: NSObject {
     var mainPlaylist = [Album]()
 }
