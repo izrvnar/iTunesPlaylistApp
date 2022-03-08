@@ -15,6 +15,7 @@ class PlaylistViewController: UIViewController{
     
     //MARK: -Properties
     var mainPlaylist: Playlist!
+    var album: Album?
     private lazy var dataSource = UICollectionViewDiffableDataSource<Section, Album>(collectionView: collectionView){
         collectionView, indexPath, album in
         
@@ -36,6 +37,7 @@ class PlaylistViewController: UIViewController{
         
     //MARK: -Outlets
     @IBOutlet weak var collectionView: UICollectionView!
+    
 
     
 
@@ -48,6 +50,8 @@ class PlaylistViewController: UIViewController{
     }//: View did load
     override func viewWillAppear(_ animated: Bool) {
         createSnapshot(with: mainPlaylist.mainPlaylist)
+        
+        
 
     }
 
@@ -72,13 +76,6 @@ class PlaylistViewController: UIViewController{
         
         
     }
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        collectionView.collectionViewLayout.invalidateLayout()
-    }
-    
-    
-    
 
 }//: PLaylist View Controller
 
@@ -91,6 +88,27 @@ extension PlaylistViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return interItemSpacing
     }
+    
+    
+    // adding the ability to delete
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let album = mainPlaylist.mainPlaylist[indexPath.item]
+        
+        let ac = UIAlertController(title: "Delete Album?", message: "Do you want to delete \(album.collectionName)? from your playlist", preferredStyle: .alert)
+        
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        ac.addAction(UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+            self!.mainPlaylist.mainPlaylist.remove(at: indexPath.item)
+            collectionView.collectionViewLayout.invalidateLayout()
+            self!.collectionView.reloadData()
+        })
+       
+
+present(ac,animated: true)
+                   
+ 
+    }
+
     
 }
 
