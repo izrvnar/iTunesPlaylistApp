@@ -7,10 +7,11 @@
 
 import UIKit
 
-let itemsPerRow: CGFloat = 2
-let interItemSpacing: CGFloat = 1
 
 class PlaylistViewController: UIViewController{
+    let itemsPerRow: CGFloat = 2
+    let interItemSpacing: CGFloat = 1
+
     
     //MARK: -Properties
     var mainPlaylist: Playlist!
@@ -22,7 +23,11 @@ class PlaylistViewController: UIViewController{
         cell.collectionNameLabel.text = album.collectionName
         cell.genreLabel.text = album.primaryGenreName
         
-        
+        if album.collectionExplicitness == "notExplicit"{
+            cell.explicitLabel.image = UIImage(systemName: "speaker.wave.3")
+        } else {
+            cell.explicitLabel.image = UIImage(systemName: "speaker.badge.exclamationmark")
+        }
         
         
         

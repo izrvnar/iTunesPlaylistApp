@@ -28,6 +28,7 @@ struct Album: Codable, Hashable{
     var collectionPrice: Double
     var collectionViewUrl: String
     var artworkUrl100: String?
+    var collectionExplicitness: String
 }
 
 extension Album{
