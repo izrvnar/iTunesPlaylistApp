@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+
+// creating a cell for the table view to use 
 class AlbumTableViewCell: UITableViewCell{
     //MARK: -Outlets
     

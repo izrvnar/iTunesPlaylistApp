@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// creating the cell for the collection view to use 
 class AlbumCollectionViewCell: UICollectionViewCell{
     
     @IBOutlet weak var explicitLabel: UIImageView!
